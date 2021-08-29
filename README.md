@@ -1,2 +1,2 @@
 # kudob33
-A Nifty Island kudos bot.
+A proposal for a Nifty Island kudos bot.
