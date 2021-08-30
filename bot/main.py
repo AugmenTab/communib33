@@ -21,7 +21,7 @@ async def on_message(msg):
     text = str(msg.content)
     logging.warning(text)
     if "whats the website" in text.lower().replace("'", ""):
-        return await msg.channel.send("Here you go! https://www.niftyisland.com/")
+        return await msg.reply("Here you go! https://www.niftyisland.com/")
 
 if __name__ == "__main__":
     client.run(token)
