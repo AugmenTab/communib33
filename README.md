@@ -14,7 +14,7 @@ Here is a list of what Communib33 can do for you, now or in the future:
 
 ### Current
 
-* Replies to requests for important links.
+* Replies to requests for important links (website).
 
 ### Future
 
