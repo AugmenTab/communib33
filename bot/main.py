@@ -1,5 +1,8 @@
 #! python3
 
+# SL Imports
+import logging
+
 # 3p Imports
 import discord
 
@@ -14,17 +17,11 @@ client = discord.Client()
 
 
 @client.event
-async def on_ready():
-    print(f"We have logged in as {client.user}.")
-
-
-@client.event
 async def on_message(msg):
-    trigger = "beep"
-    response = "boop"
-    if trigger in str(msg.content):
-        await msg.channel.send(response)
-        return
+    text = str(msg.content)
+    logging.warning(text)
+    if "whats the website" in text.lower().replace("'", ""):
+        return await msg.channel.send("Here you go! https://www.niftyisland.com/")
 
-
-client.run(token)
+if __name__ == "__main__":
+    client.run(token)
