@@ -45,12 +45,13 @@ async def kudos(ctx):
         num = await db.get_kudos_count(receiver.id)
         name = giver.nick or giver.name
         server = giver.guild.name
-        logging.warning(msg)
         await giver.send(txt.formatKudos(name, num, server))
     else:
-        ## TODO Add a kudos to receiver.
-        logging.warning(receiver.id)
-        await ctx.message.add_reaction(txt.emojis["star"])
+        result = await db.give_kudos(giver, receiver, msg)
+        if result == "ok":
+            await ctx.message.add_reaction(txt.emojis["star"])
+        else:
+            await giver.send(txt.about["kudos"][result])
 
 
 # Helper Functions
