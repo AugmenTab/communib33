@@ -6,8 +6,6 @@ Simply put, Communib33 is a Discord bot intended to track community involvement 
 
 Currently, the bot is just a prototype. A few of the features are implemented, though not to their fullest potential. It is also hosted on my PC, and all the instructions below demonstrate how to do the same; the final version would obviously have to be hosted in the Cloud someplace.
 
-To add this Communib33 prototype to your server, just click [this link!](https://discord.com/api/oauth2/authorize?client_id=881626431162036226&permissions=122406660160&scope=bot)
-
 ## Features
 
 Here is a list of what Communib33 can do for you, now or in the future:
@@ -21,7 +19,7 @@ Here is a list of what Communib33 can do for you, now or in the future:
 * Kudos system - users can give each others kudos for high-quality comments, and the bot will keep track of kudos. 
 * Keeping track of who invited who to the server, and awarding kudos for it.
 * Providing community assets on request (files, base images, base models).
-* Check raffle eligibility based on user tags or roles.
+* Check raffle eligibility based on user tags or roles, or kudos count.
 * Get the floor price for palms and blades.
 * Post top comments of the past month on the 1st of each new month (based on total reactions).
 
