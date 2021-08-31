@@ -26,6 +26,11 @@ async def on_message(msg):
         await b33.process_commands(msg)
 
 
+@b33.command(name="communib33", help=txt.about["b33"]["desc"])
+async def communib33(ctx):
+    await ctx.author.send(txt.command_list)
+
+
 @b33.command(name="kudos", help=txt.about["kudos"]["desc"])
 async def kudos(ctx):
     msg = ctx.message
