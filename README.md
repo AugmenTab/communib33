@@ -2,7 +2,7 @@
 
 I'd like to present my proposal for a Nifty Island community Discord bot - Communib33!
 
-Simply put, Communib33 is a Discord bot intended to track community involvement and interaction on the Nifty Island Pirates server. It introduces a Kudos system, which allows users to give each other props for sharing interesting articles, incredible art or music, helpful comments, great memes, or other excellent posts that contribute to the net value of the community as a whole. Community members will also be able to earn kudos by directly growing the server - one kudos per member that joins from one of your invite links. User kudos counts could then be used for all sorts of things, like tickets in a giveaway or qualification for special roles.
+Simply put, Communib33 is a Discord bot intended to track community involvement and interaction on the Nifty Island server. It introduces a Kudos system, which allows users to give each other props for sharing interesting articles, incredible art or music, helpful comments, great memes, or other excellent posts that contribute to the net value of the community as a whole. Community members will also be able to earn kudos by directly growing the server - one kudos per member that joins from one of your invite links. User kudos counts could then be used for all sorts of things, like tickets in a giveaway or qualification for special roles.
 
 Currently, the bot is just a prototype. A few of the features are implemented, though not to their fullest potential. It is also hosted on my PC, and all the instructions below demonstrate how to do the same; the final version would obviously have to be hosted in the Cloud someplace.
 
@@ -12,16 +12,18 @@ Here is a list of what Communib33 can do for you, now or in the future:
 
 ### Current
 
-* Replies to requests for important links (website).
+* DM replies to requests for important links (website).
 
 ### Future
 
-* Kudos system - users can give each others kudos for high-quality comments, and the bot will keep track of kudos. 
-* Keeping track of who invited who to the server, and awarding kudos for it.
+* Kudos system - users can give each others kudos for high-quality comments, and the bot will keep track of kudos.
+    * `!kudos` - Get a DM of your current kudos count.
+    * `!kudos @<user>` - Give a member of the community a kudos. Works with message replies using just the `!kudos` command, too.
 * Providing community assets on request (files, base images, base models).
-* Check raffle eligibility based on user tags or roles, or kudos count.
-* Get the floor price for palms and blades.
-* Post top comments of the past month on the 1st of each new month (based on total reactions).
+* Check raffle eligibility based on user tags, roles, or kudos count.
+* Post report of top comments of the past week/month as an automated scheduled task (based on total reactions).
+* Post report of users who have achieved a particular accomplishment over a given time (most kudos earned, biggest memer, etc).
+* Keeping track of who invited who to the server, and awarding kudos for it.
 
 ## Technology Used
 
