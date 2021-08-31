@@ -10,6 +10,7 @@ from   discord.ext import commands
 # Internal Imports
 import src.text as txt
 try:
+    import src.database as db
     from src.config import token
 except Exception as e:
     print (e)
@@ -41,7 +42,7 @@ async def kudos(ctx):
     elif receiver.bot:
         await giver.send(txt.about["kudos"]["bot"])
     elif giver.id == receiver.id:
-        num = 0 ## Acquire kudos count for the giver
+        num = await db.get_kudos_count(receiver.id)
         name = giver.nick or giver.name
         server = giver.guild.name
         logging.warning(msg)
@@ -65,4 +66,5 @@ async def get_requested_links(msg):
 
 
 if __name__ == "__main__":
+    db.connect_to_db()
     b33.run(token)
