@@ -20,12 +20,13 @@ Communib33 Command List
 
 Prefix - `!`
 
+`communib33` - Display this command list.
+
 `kudos` - Get your current kudos count. Alternatively, grant kudos to another user if used in a message reply.
 
 `kudos @<user>` - Grant kudos to the mentioned user.
 
-In addition to these commands, Communib33 will also listen to message content asking for the following important links, and send them to you in a DM!
-- website
+`What's the website` - Get a DM of the Nifty Island website. Will detect this exact string of text, regardless of case or presence of the apostrophe.
 """
 
 
