@@ -1,19 +1,36 @@
 #! python3
 
 # SL Imports
-import logging
+import asyncio
 
 # 3p Imports
+from celery import Celery
+from discord.ext import commands
 import discord
-from   discord.ext import commands
 
 # Internal Imports
+from src.config import token
+import src.database as db
 import src.text as txt
-try:
-    import src.database as db
-    from src.config import token
-except Exception as e:
-    print (e)
+
+
+def make_celery():
+    celery = Celery(
+        "celery",
+        broker="amqp://rabbit:password@rabbitmq"
+    )
+    celery.config_from_object("src.config")
+    return celery
+
+
+db.connect_to_db()
+celery_app = make_celery()
+
+
+@celery_app.task
+def reset_daily_kudos_task():
+    asyncio.run(db.update_daily_kudos(0))
+    print(txt.about["kudos"]["reset"])
 
 
 # Python Bot Commands and Message Triggers
@@ -70,5 +87,4 @@ async def get_requested_links(msg):
 
 
 if __name__ == "__main__":
-    db.connect_to_db()
     b33.run(token)

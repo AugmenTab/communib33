@@ -8,6 +8,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-ENTRYPOINT [ "python3" ]
-
-CMD [  "main.py"]
+ENTRYPOINT [ "./entrypoint.sh" ]

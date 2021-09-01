@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 "discord.py" = "*"
 mongoengine = "*"
+celery = "*"
 
 [dev-packages]
 

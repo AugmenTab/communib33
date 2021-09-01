@@ -9,7 +9,8 @@ about = {
         "desc": "Gives a user kudos, or checks your own kudos.",
         "noref": "Whoopsie! You've gotta @ someone to give them kudos!",
         "bot": "Whoopsie! Bots like us have no use for kudos!",
-        "not_enough": "Whoopsie! You've used up your kudos for the day!"
+        "not_enough": "Whoopsie! You've used up your kudos for the day!",
+        "reset": "Daily kudos numbers have been reset."
     }
 }
 

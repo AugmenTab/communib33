@@ -1,8 +1,6 @@
 #! python3
 
 # PSL Imports
-import asyncio
-import logging
 from datetime import datetime
 
 # 3p Imports
@@ -81,8 +79,8 @@ async def give_kudos(g, r, msg):
     return result
 
 
-async def update_daily_kudos():
-    User.objects().update(set__kudos_today=0, upsert=True)
+async def update_daily_kudos(kudos):
+    User.objects().update(set__kudos_today=kudos, upsert=True)
 
 
 def __create_kudos(giver, receiver, msg):
@@ -94,6 +92,7 @@ def __create_kudos(giver, receiver, msg):
             timestamp = datetime.utcnow(),
         )
     return new_kudos
+
 
 async def __create_new_user(user):
     new_user = User(
