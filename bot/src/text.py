@@ -29,7 +29,11 @@ In addition to these commands, Communib33 will also listen to message content as
 
 
 emojis = {
+    "1": "1️⃣",
+    "2": "2️⃣",
+    "3": "3️⃣",
     "eyes": "👀",
+    "no_entry": "⛔",
     "star": "⭐"
 }
 

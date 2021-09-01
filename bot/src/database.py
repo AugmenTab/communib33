@@ -65,6 +65,7 @@ async def get_kudos_count(_id):
 
 
 async def give_kudos(g, r, msg):
+    result = { "msg": "not_enough" }
     receiver = User.objects(user_id=r.id).first() or await __create_new_user(r)
     giver = User.objects(user_id=g.id).first() or await __create_new_user(g)
     if giver.kudos_today < 3:
@@ -74,8 +75,9 @@ async def give_kudos(g, r, msg):
         receiver.kudos_received.append(new_kudos)
         await __update_user(giver)
         await __update_user(receiver)
-        return "ok"
-    return "not_enough"
+        result["msg"] = "ok"
+        result["kudos_today"] = giver.kudos_today
+    return result
 
 
 def __create_kudos(giver, receiver, msg):

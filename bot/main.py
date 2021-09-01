@@ -48,10 +48,13 @@ async def kudos(ctx):
         await giver.send(txt.formatKudos(name, num, server))
     else:
         result = await db.give_kudos(giver, receiver, msg)
-        if result == "ok":
+        if result["msg"] == "ok":
+            number_emoji = str(result["kudos_today"])
             await ctx.message.add_reaction(txt.emojis["star"])
+            await ctx.message.add_reaction(txt.emojis[number_emoji])
         else:
-            await giver.send(txt.about["kudos"][result])
+            await ctx.message.add_reaction(txt.emojis["no_entry"])
+            await giver.send(txt.about["kudos"][result["msg"]])
 
 
 # Helper Functions
