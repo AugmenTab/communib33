@@ -12,13 +12,13 @@ Here is a list of what Communib33 can do for you, now or in the future:
 
 ### Current
 
-* DM replies to requests for important links (website).
+* DM replies to requests for important links (currently just the website).
+* Kudos system - users can give each others kudos for high-quality comments, and the bot will keep track of kudos.
+    * `!kudos` - Get a DM of your current kudos count.
+    * `!kudos @<user>` - Give a member of the community a kudos. Works with message replies using just the `!kudos` command, too. You can give up to three kudos a day, which resets at midnight UTC.
 
 ### Future
 
-* Kudos system - users can give each others kudos for high-quality comments, and the bot will keep track of kudos.
-    * `!kudos` - Get a DM of your current kudos count.
-    * `!kudos @<user>` - Give a member of the community a kudos. Works with message replies using just the `!kudos` command, too.
 * Providing community assets on request (files, base images, base models).
 * Check raffle eligibility based on user tags, roles, or kudos count.
 * Post report of top comments of the past week/month as an automated scheduled task (based on total reactions).
@@ -37,6 +37,7 @@ Below is a list of all the important technology used in the production of this a
 
 ### Python Modules/Libraries
 
+* [Asyncio](https://docs.python.org/3/library/asyncio.html): Most of the app's activities have been made asynchronous.
 * [Discord.py](https://discordpy.readthedocs.io/en/stable/#): This library allowed for the use of all the objects and methods in the Discord API.
 * [MongoEngine](http://mongoengine.org/): I used MongoEngine to map objects to the database as documents.
 
@@ -67,9 +68,33 @@ Note that any time you install new packages not listed here, you will have to pe
 
 ## Setting Up the Config File
 
-I have provided a sample config file in this repository. The first thing you will have to do will be to rename the file to `config.py`. Make sure it is still in the bot/src directory.
+I have provided a sample config file in this repository, but it will take a little work to get it ready to use. Here's the code inside the [sample_config.py](bot/src/sample_config.py) file:
 
-Any of the text in `<angle brackets>` above should be replaced with whatever it says. So, `token` will need to be replaced with your Discord bot token.
+```python
+username = '<Your MongoDB username.>'
+password = '<Your MongoDB password.>'
+database = '<The name of the MongoDB database you are using.>'
+token = '<Your Discord bot token.>'
+
+
+task_ignore_result = False
+timezone = 'UTC'
+beat_schedule = {
+    "reset_daily_kudos_tasks": {
+        "task": "main.reset_daily_kudos_task",
+        "schedule": crontab(hour=0, minute=0)
+    }
+}
+}
+```
+
+The first thing you will have to do will be to rename the file to `config.py`. Make sure it is still in the bot/src directory.
+
+Any of the text in `<angle brackets>` above should be replaced with whatever it says. So, your username will be your MongoDB username, your token will be your personal bot token from Discord, and so on.
+
+If you wish, you can change the frequency with which the kudos count for all users will be reset. I would recommend keeping it to once per day, at an hour and minute denoted by the `hour` and `minute` values passed to `crontab` in the schedule. The hours are represented in a 24-hour clock format. To schedule it twice or more per day, you can instead pass a string of the numbers representing the hours. So, passing `hour="6, 18"` will cause the app to update the kudos count as 6 am and 6 pm UTC.
+
+Apart from these values, I wouldn't recommend updating anything.
 
 ## Building Up and Tearing Down the Docker Containers
 
