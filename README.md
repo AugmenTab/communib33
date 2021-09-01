@@ -14,8 +14,6 @@ Here is a list of what Communib33 can do for you, now or in the future:
 
 * DM replies to requests for important links (currently just the website).
 * Kudos system - users can give each others kudos for high-quality comments, and the bot will keep track of kudos.
-    * `!kudos` - Get a DM of your current kudos count.
-    * `!kudos @<user>` - Give a member of the community a kudos. Works with message replies using just the `!kudos` command, too. You can give up to three kudos a day, which resets at midnight UTC.
 
 ### Future
 
@@ -24,6 +22,14 @@ Here is a list of what Communib33 can do for you, now or in the future:
 * Post report of top comments of the past week/month as an automated scheduled task (based on total reactions).
 * Post report of users who have achieved a particular accomplishment over a given time (most kudos earned, biggest memer, etc).
 * Keeping track of who invited who to the server, and awarding kudos for it.
+
+## Commands
+
+* Prefix: `!`
+* `communib33` - Get a DM of the command menu.
+* `kudos` - Get a DM of your current kudos count.
+* `kudos @<user>` - Give a member of the community a kudos. Works with message replies using just the `!kudos` command, too. You can give up to three kudos a day, which resets at midnight UTC.
+* `What's the website` - Will detect this exact string of text, regardless of case or presence of the apostrophe, and send a DM to the user containing a link to the [Nifty Island website](https://www.niftyisland.com/).
 
 ## Technology Used
 
